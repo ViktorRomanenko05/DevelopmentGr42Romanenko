@@ -2,7 +2,7 @@
 # JetBrains / IntelliJ
 # Ссылки: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 ###############################################################################
-# User-specific и высокочастотные / чувствительные данные
+# User-specific и чувствительные данные
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml
@@ -32,14 +32,14 @@ out/
 .idea/**/gradle.xml
 .idea/**/libraries
 # (Раскомментируйте, если используете автоконфигурацию и хотите исключить модули)
- .idea/artifacts
- .idea/compiler.xml
- .idea/jarRepositories.xml
- .idea/modules.xml
- .idea/*.iml
- .idea/modules
- *.iml
- *.ipr
+.idea/artifacts
+.idea/compiler.xml
+.idea/jarRepositories.xml
+.idea/modules.xml
+.idea/*.iml
+.idea/modules
+*.iml
+*.ipr
 
 # CMake
 cmake-build-*/
@@ -72,8 +72,8 @@ fabric.properties
 # Пакетированные файлы
 *.jar
 *.war
-*.ear
 *.nar
+*.ear
 *.zip
 *.tar.gz
 *.rar
@@ -115,19 +115,42 @@ buildNumber.properties
 ###############################################################################
 # Sonar / SonarQube / SonarLint
 ###############################################################################
+/.sonar/
 .sonar/
 .sonarqube/
 .scannerwork/
 .sonarlint/
 
 ###############################################################################
-# Прочее
+# Sublime Text
 ###############################################################################
-# Исключить всё, что относится к IDE-сборкам, если не нужно
-# (Добавьте свои пути при необходимости)
+*.sublime-workspace
+*.sublime-project
+*.sublime-settings
 
-# mpeltonen/sbt-idea plugin
-#.idea_modules/
+###############################################################################
+# Прочее и резервные файлы
+###############################################################################
+# Резервные и временные файлы
+*.orig
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*
+*_BACKUP_*.txt
+*_BASE_*.txt
+*_LOCAL_*.txt
+*_REMOTE_*.txt
+
+# Каталог с конфигурационными файлами (если не требуется хранить в репозитории)
+config/*
+
+# Специфичный лог-файл
+mm.log
+
+# Apex-скрипты: игнорировать всё, кроме файлов с расширением .cls
+apex-scripts/*
+!apex-scripts/*.cls
 
 # JIRA plugin
 atlassian-ide-plugin.xml
