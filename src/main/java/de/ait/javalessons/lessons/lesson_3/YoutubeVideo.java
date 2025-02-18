@@ -1,4 +1,4 @@
-package de.ait.javalessons.lessons.lesson_1;
+package de.ait.javalessons.lessons.lesson_3;
 
 public class YoutubeVideo {
 
