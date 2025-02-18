@@ -17,11 +17,11 @@ public class YouTubeAnalyzer {
 
     public static void main(String[] args) {
         //System.out.println(getVideosMore1MViews());
-        System.out.println(getVideosMore10Minutes());
+        //System.out.println(getVideosMore10Minutes());
         //System.out.println(getUniqueCategories());
         //System.out.println(getTitlesUpperCase());
         //System.out.println(getTop3MostLikelyVideos());
-        //System.out.println(isMore10M());
+        System.out.println(isMore10M());
     }
 
     public static List<YoutubeVideo>  getVideosMore1MViews(){
