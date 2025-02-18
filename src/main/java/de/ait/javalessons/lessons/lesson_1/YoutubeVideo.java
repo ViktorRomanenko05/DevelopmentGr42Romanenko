@@ -1,4 +1,4 @@
-package de.ait.javalessons.streamapi;
+package de.ait.javalessons.lessons.lesson_1;
 
 public class YoutubeVideo {
 
