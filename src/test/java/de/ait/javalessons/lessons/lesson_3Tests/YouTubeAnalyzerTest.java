@@ -11,6 +11,4 @@ public class YouTubeAnalyzerTest {
         YouTubeAnalyzer youTubeAnalyzer = new YouTubeAnalyzer();
          boolean result = youTubeAnalyzer.isMore10M();
         assertTrue(result);}
-
-
 }
