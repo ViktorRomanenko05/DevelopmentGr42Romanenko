@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class YouTubeAnalyzer {
     // Список видео для анализа / List of videos for analysis
-    private static List<YoutubeVideo> videos = List.of(
+    public static List<YoutubeVideo> videos = List.of(
             new YoutubeVideo("Как научиться программировать", "IT Channel", 15000000, 12000, 720, "Образование", true),
             new YoutubeVideo("Лучшие моменты матча", "Sports Channel", 500000, 8000, 600, "Спорт", false),
             new YoutubeVideo("Новый трек 2025", "Music Channel", 3000000, 25000, 240, "Музыка", true),
@@ -25,7 +25,7 @@ public class YouTubeAnalyzer {
     }
 
     public static List<YoutubeVideo>  getVideosMore1MViews(){
-        List<YoutubeVideo> videosMore1MViews = videos.stream()
+        List <YoutubeVideo> videosMore1MViews = videos.stream()
                 .filter(video -> video.getViews() > 1_000_000)
                 .collect(Collectors.toList());
         return videosMore1MViews;
