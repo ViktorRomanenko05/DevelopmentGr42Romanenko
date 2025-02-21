@@ -21,7 +21,7 @@ public class GeoDataProcessor {
             List<String> resultList = names.stream()
                     .filter(Objects::nonNull)
                     .filter(name -> !name.isEmpty())
-                    .filter(name -> name.trim().startsWith(letter))
+                    .filter(name -> name.startsWith(letter))
                     .toList();
             LOGGER.info("{} names with first letter {} was found", resultList.size(), letter);
             return resultList;
@@ -37,7 +37,7 @@ public class GeoDataProcessor {
             List<String> resultList = names.stream()
                     .filter(Objects::nonNull)
                     .filter(name -> !name.isEmpty())
-                    .filter(name -> name.trim().endsWith(letter))
+                    .filter(name -> name.endsWith(letter))
                     .toList();
             LOGGER.info("{} names with last letter {} was found", resultList.size(), letter);
             return resultList;
@@ -53,7 +53,7 @@ public class GeoDataProcessor {
             List<String> resultList = names.stream()
                     .filter(Objects::nonNull)
                     .filter(name -> !name.isEmpty())
-                    .filter(name -> operation.apply(name.trim().length(), nameLength))
+                    .filter(name -> operation.apply(name.length(), nameLength))
                     .toList();
             LOGGER.info("{} names was found", resultList.size());
             return resultList;
@@ -69,7 +69,7 @@ public class GeoDataProcessor {
             List<String> resultList = names.stream()
                     .filter(Objects::nonNull)
                     .filter(name -> !name.isEmpty())
-                    .filter(name -> name.trim().length() % 2 == 0)
+                    .filter(name -> name.length() % 2 == 0)
                     .toList();
             LOGGER.info("{} names with even count of letters was found", resultList.size());
             return resultList;
@@ -85,7 +85,7 @@ public class GeoDataProcessor {
             List<String> resultList = names.stream()
                     .filter(Objects::nonNull)
                     .filter(name -> !name.isEmpty())
-                    .filter(name -> name.trim().contains(letter))
+                    .filter(name -> name.contains(letter))
                     .toList();
             LOGGER.info("{} names containing the letter {} was found", resultList.size(), letter);
             return resultList;
