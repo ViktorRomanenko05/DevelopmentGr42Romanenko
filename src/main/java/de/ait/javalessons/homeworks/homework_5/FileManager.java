@@ -14,7 +14,6 @@ public enum FileManager {
 
     @Getter
     private final File file;
-
     private final String DIRECTORY_PATH = "src/main/java/de/ait/javalessons/homeworks/homework_5/geoAppResources";
 
     FileManager(String fileName) {

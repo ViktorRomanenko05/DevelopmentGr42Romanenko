@@ -18,7 +18,11 @@ public class GeoDataProcessor {
     //Method for filtering names by first letter
     public static List<String> startsWithLetter(List<String> names, String letter) {
         if (names != null && letter != null) {
-            List<String> resultList = names.stream().filter(Objects::nonNull).filter(name -> !name.isEmpty()).filter(name -> name.startsWith(letter)).toList();
+            List<String> resultList = names.stream()
+                    .filter(Objects::nonNull)
+                    .filter(name -> !name.isEmpty())
+                    .filter(name -> name.trim().startsWith(letter))
+                    .toList();
             LOGGER.info("{} names with first letter {} was found", resultList.size(), letter);
             return resultList;
         } else {
@@ -30,7 +34,11 @@ public class GeoDataProcessor {
     //Method for filtering names by last letter
     public static List<String> endsWithLetter(List<String> names, String letter) {
         if (names != null && letter != null) {
-            List<String> resultList = names.stream().filter(Objects::nonNull).filter(name -> !name.isEmpty()).filter(name -> name.endsWith(letter)).toList();
+            List<String> resultList = names.stream()
+                    .filter(Objects::nonNull)
+                    .filter(name -> !name.isEmpty())
+                    .filter(name -> name.trim().endsWith(letter))
+                    .toList();
             LOGGER.info("{} names with last letter {} was found", resultList.size(), letter);
             return resultList;
         } else {
@@ -42,7 +50,11 @@ public class GeoDataProcessor {
     //Method for filtering names by name length
     public static List<String> filteringByNameLength(List<String> names, Operations operation, int nameLength) {
         if (names != null && nameLength > 0) {
-            List<String> resultList = names.stream().filter(Objects::nonNull).filter(name -> !name.isEmpty()).filter(name -> operation.apply(name.length(), nameLength)).toList();
+            List<String> resultList = names.stream()
+                    .filter(Objects::nonNull)
+                    .filter(name -> !name.isEmpty())
+                    .filter(name -> operation.apply(name.trim().length(), nameLength))
+                    .toList();
             LOGGER.info("{} names was found", resultList.size());
             return resultList;
         } else {
@@ -54,7 +66,11 @@ public class GeoDataProcessor {
     //Method for filtering names by even letter Count
     public static List<String> filteringByEvenLetterCount(List<String> names) {
         if (names != null) {
-            List<String> resultList = names.stream().filter(Objects::nonNull).filter(name -> !name.isEmpty()).filter(name -> name.length() % 2 == 0).toList();
+            List<String> resultList = names.stream()
+                    .filter(Objects::nonNull)
+                    .filter(name -> !name.isEmpty())
+                    .filter(name -> name.trim().length() % 2 == 0)
+                    .toList();
             LOGGER.info("{} names with even count of letters was found", resultList.size());
             return resultList;
         } else {
@@ -66,7 +82,11 @@ public class GeoDataProcessor {
     //Method for filtering names containing a specified letter
     public static List<String> filteringNamesWithSpecifiedLetter(List<String> names, String letter) {
         if (names != null && letter != null) {
-            List<String> resultList = names.stream().filter(Objects::nonNull).filter(name -> !name.isEmpty()).filter(name -> name.contains(letter)).toList();
+            List<String> resultList = names.stream()
+                    .filter(Objects::nonNull)
+                    .filter(name -> !name.isEmpty())
+                    .filter(name -> name.trim().contains(letter))
+                    .toList();
             LOGGER.info("{} names containing the letter {} was found", resultList.size(), letter);
             return resultList;
         } else {
