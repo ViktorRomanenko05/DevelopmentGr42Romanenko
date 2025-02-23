@@ -16,14 +16,14 @@ public class GeoDataProcessor {
     }
 
     //Method for filtering names by first letter
-    public static List<String> startsWithLetter(List<String> names, String letter) {
+    public static List<String> startsWithLetter(List<String> names, String letter, boolean reverse) {
         if (names != null && letter != null) {
             List<String> resultList = names.stream()
                     .filter(Objects::nonNull)
                     .filter(name -> !name.isEmpty())
-                    .filter(name -> name.startsWith(letter))
+                    .filter(name ->(reverse ? name.endsWith(letter) : name.startsWith(letter)))
                     .toList();
-            LOGGER.info("{} names with first letter {} was found", resultList.size(), letter);
+            LOGGER.info("{} names with {} letter {} was found", resultList.size(), reverse ? "last":"first", letter);
             return resultList;
         } else {
             LOGGER.warn(NULL_WARN_MESSAGE);
@@ -32,20 +32,20 @@ public class GeoDataProcessor {
     }
 
     //Method for filtering names by last letter
-    public static List<String> endsWithLetter(List<String> names, String letter) {
-        if (names != null && letter != null) {
-            List<String> resultList = names.stream()
-                    .filter(Objects::nonNull)
-                    .filter(name -> !name.isEmpty())
-                    .filter(name -> name.endsWith(letter))
-                    .toList();
-            LOGGER.info("{} names with last letter {} was found", resultList.size(), letter);
-            return resultList;
-        } else {
-            LOGGER.warn(NULL_WARN_MESSAGE);
-        }
-        return Collections.emptyList();
-    }
+//    public static List<String> endsWithLetter(List<String> names, String letter) {
+//        if (names != null && letter != null) {
+//            List<String> resultList = names.stream()
+//                    .filter(Objects::nonNull)
+//                    .filter(name -> !name.isEmpty())
+//                    .filter(name -> name.endsWith(letter))
+//                    .toList();
+//            LOGGER.info("{} names with last letter {} was found", resultList.size(), letter);
+//            return resultList;
+//        } else {
+//            LOGGER.warn(NULL_WARN_MESSAGE);
+//        }
+//        return Collections.emptyList();
+//    }
 
     //Method for filtering names by name length
     public static List<String> filteringByNameLength(List<String> names, Operations operation, int nameLength) {
