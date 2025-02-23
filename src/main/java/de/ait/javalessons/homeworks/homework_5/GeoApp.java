@@ -17,7 +17,7 @@ public class GeoApp {
         line();
         System.out.println("Task 1");
         line();
-        GeoDataProcessor.startsWithLetter(data.getCountries(), "C", false).forEach(System.out::println);
+        GeoDataProcessor.startsWithLetter(data.getCountries(), "C").forEach(System.out::println);
         line();
 
         //Task 2
@@ -59,7 +59,7 @@ public class GeoApp {
         //Using Stream API, filter the cities whose names end with "o".
         System.out.println("Task 7");
         line();
-        GeoDataProcessor.startsWithLetter(data.getCities(), "o", true).forEach(System.out::println);
+        GeoDataProcessor.endsWithLetter(data.getCities(), "o").forEach(System.out::println);
         line();
 
         //Task 8
@@ -73,7 +73,7 @@ public class GeoApp {
         //Using Stream API, filter the continents whose names start with "A".
         System.out.println("Task 9");
         line();
-        GeoDataProcessor.startsWithLetter(data.getContinents(), "A", false).forEach(System.out::println);
+        GeoDataProcessor.startsWithLetter(data.getContinents(), "A").forEach(System.out::println);
         line();
 
         LOGGER.info("Program finished");

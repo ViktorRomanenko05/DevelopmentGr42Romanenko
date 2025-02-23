@@ -15,8 +15,16 @@ public class GeoDataProcessor {
     private GeoDataProcessor() {
     }
 
-    //Method for filtering names by first letter
-    public static List<String> startsWithLetter(List<String> names, String letter, boolean reverse) {
+    public static List<String> startsWithLetter (List<String> names, String letter){
+        return startsEndsWithLetter(names, letter, false);
+    }
+
+    public static List<String> endsWithLetter (List<String> names, String letter){
+        return startsEndsWithLetter(names, letter, true);
+    }
+
+    //Private method for filtering names by first or last letter
+    private static List<String> startsEndsWithLetter(List<String> names, String letter, boolean reverse) {
         if (names != null && letter != null) {
             List<String> resultList = names.stream()
                     .filter(Objects::nonNull)
@@ -30,7 +38,7 @@ public class GeoDataProcessor {
         }
         return Collections.emptyList();
     }
-
+//ХХХХХХХ   EXCLUDED   XXXXXXXXXX
     //Method for filtering names by last letter
 //    public static List<String> endsWithLetter(List<String> names, String letter) {
 //        if (names != null && letter != null) {
