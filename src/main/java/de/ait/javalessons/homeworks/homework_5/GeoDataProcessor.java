@@ -15,15 +15,17 @@ public class GeoDataProcessor {
     private GeoDataProcessor() {
     }
 
+    //Method for filtering names by first letter
     public static List<String> startsWithLetter (List<String> names, String letter){
         return startsEndsWithLetter(names, letter, false);
     }
 
+    //method for filtering names by first or last letter
     public static List<String> endsWithLetter (List<String> names, String letter){
         return startsEndsWithLetter(names, letter, true);
     }
 
-    //Private method for filtering names by first or last letter
+    //Private method for filtering names by last letter
     private static List<String> startsEndsWithLetter(List<String> names, String letter, boolean reverse) {
         if (names != null && letter != null) {
             List<String> resultList = names.stream()
@@ -31,7 +33,7 @@ public class GeoDataProcessor {
                     .filter(name -> !name.isEmpty())
                     .filter(name ->(reverse ? name.endsWith(letter) : name.startsWith(letter)))
                     .toList();
-            LOGGER.info("{} names with {} letter {} was found", resultList.size(), reverse ? "last":"first", letter);
+            LOGGER.info("{} names with {} letter {} was found", resultList.size(), reverse ? "last" : "first", letter);
             return resultList;
         } else {
             LOGGER.warn(NULL_WARN_MESSAGE);
