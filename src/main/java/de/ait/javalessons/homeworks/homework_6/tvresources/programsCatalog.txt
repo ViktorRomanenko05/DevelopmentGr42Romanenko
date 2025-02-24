@@ -1,0 +1,8 @@
+Channel One, Morning News, 30, true, 7.8
+Channel One, Late Show, 45, false, 8.1
+SportsTV, Football Match, 120, true, 9.0
+MovieMax, Action Movie, 110, false, 8.5
+MovieMax, Romantic Comedy, 100, false, 6.9
+EduChannel, Science Doc, 60, false, 7.5
+ComedyFun, Stand-up Special, 90, false, 8.2
+ComedyFun, Improv Show, 25, true, 7.3
