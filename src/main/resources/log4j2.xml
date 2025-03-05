@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
     <Appenders>
-        <!-- RollingFileAppender с ротацией по времени и размеру -->
+        <!-- RollingFileAppender с ротацией по времени и архивированием в ZIP -->
         <RollingFile name="RollingFile"
                      fileName="logs/application.log"
-                     filePattern="logs/application-%d{dd-MM-yyyy}-%i.log.gz">
+                     filePattern="logs/archive/application-%d{yyyy-MM-dd}.zip">
             <PatternLayout>
-                <Pattern>%d{dd-MM-yyyy HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</Pattern>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</Pattern>
             </PatternLayout>
             <Policies>
                 <!-- Ротация раз в сутки -->
                 <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
-                <!-- Ротация при достижении 10MB -->
-                <SizeBasedTriggeringPolicy size="10MB"/>
             </Policies>
-            <!-- Максимальное количество архивных файлов: 7 -->
-            <DefaultRolloverStrategy max="7"/>
+            <!-- Максимальное количество архивных файлов: 30 дней -->
+            <DefaultRolloverStrategy max="30" fileIndex="max"/>
         </RollingFile>
 
         <!-- Консольный аппендер -->
@@ -26,13 +24,13 @@
 
     <Loggers>
         <!-- Пример логгера для пакета org.springframework -->
-        <Logger name="org.springframework" level="info" additivity="false">
+        <Logger name="org.springframework" level="debug" additivity="false">
             <AppenderRef ref="RollingFile"/>
             <AppenderRef ref="Console"/>
         </Logger>
 
         <!-- Корневой логгер -->
-        <Root level="info">
+        <Root level="debug">
             <AppenderRef ref="RollingFile"/>
             <AppenderRef ref="Console"/>
         </Root>

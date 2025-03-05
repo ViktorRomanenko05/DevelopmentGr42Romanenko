@@ -1,5 +1,6 @@
 package de.ait.javalessons.homeworks.homework_7;
 
+import com.github.javafaker.Faker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,7 +44,7 @@ public class Calculations {
             LOGGER.warn("Division by 0");
             return 0;
         }
-        return (a / b);
+        return a / b;
     }
 
     //Task 4
@@ -83,4 +84,8 @@ public class Calculations {
             return text.contains(word);
         }
     }
+    Faker faker = new Faker();
+
+    String kino = faker.
 }
+
