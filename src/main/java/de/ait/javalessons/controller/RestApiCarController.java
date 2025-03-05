@@ -51,9 +51,11 @@ public class RestApiCarController {
     Optional<Car> getCarById(@PathVariable String id) {
         for (Car car : carList) {
             if (car.getId().equals(id)) {
+                log.info("Car with id {} was found", id);
                 return Optional.of(car);
             }
         }
+        log.info("Car with id {} was not found", id);
         return Optional.empty();
     }
 
