@@ -1,6 +1,6 @@
-package de.ait.javalessons.lessons.lesson_8.controller;
+package de.ait.javalessons.controller;
 
-import de.ait.javalessons.lessons.lesson_8.model.Car;
+import de.ait.javalessons.model.Car;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

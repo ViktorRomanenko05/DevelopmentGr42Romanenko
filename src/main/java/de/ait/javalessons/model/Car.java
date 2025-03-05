@@ -1,4 +1,4 @@
-package de.ait.javalessons.lessons.lesson_8.model;
+package de.ait.javalessons.model;
 
 public class Car {
     private final String id;
