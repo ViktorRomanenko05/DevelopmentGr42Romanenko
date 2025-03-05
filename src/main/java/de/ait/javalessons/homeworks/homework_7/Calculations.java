@@ -84,8 +84,5 @@ public class Calculations {
             return text.contains(word);
         }
     }
-    Faker faker = new Faker();
-
-    String kino = faker.
 }
 
