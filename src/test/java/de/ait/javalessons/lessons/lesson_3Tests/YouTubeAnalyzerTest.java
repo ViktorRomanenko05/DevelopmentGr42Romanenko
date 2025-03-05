@@ -1,6 +1,6 @@
 package de.ait.javalessons.lessons.lesson_3Tests;
 
-import de.ait.javalessons.lessons.lesson_3.YouTubeAnalyzer;
+import de.ait.javalessons.lessons.lesson_5.YouTubeAnalyzer;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class YouTubeAnalyzerTest {

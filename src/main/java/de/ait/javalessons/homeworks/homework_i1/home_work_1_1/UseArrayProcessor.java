@@ -25,8 +25,8 @@ public class UseArrayProcessor {
         executor.shutdown();
 
         //Логируем и сравниваем результаты
-        LOGGER.info("One thread result: " + arrayProcessor_1.getResultOneThread());
-        LOGGER.info("Two threads result: " + arrayProcessor_1.getMultiThreadResult());
+        LOGGER.info("One thread result: {}", arrayProcessor_1.getResultOneThread());
+        LOGGER.info("Two threads result: {}", arrayProcessor_1.getMultiThreadResult());
     }
 }
 

@@ -2,7 +2,6 @@ package de.ait.javalessons.homeworks.homework_i1.home_work_1;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 public class UseArrayProcessor {
     private static final Logger LOGGER = LoggerFactory.getLogger(UseArrayProcessor.class);
 
@@ -25,8 +24,8 @@ public class UseArrayProcessor {
         thread2.join();
 
         //Логируем и сравниваем результаты
-        LOGGER.info("One thread result: " + arrayProcessor.getResultOneThread());
-        LOGGER.info("Two threads result: " + arrayProcessor.getMultiThreadResult());
+        LOGGER.info("One thread result: {}", arrayProcessor.getResultOneThread());
+        LOGGER.info("Two threads result: {}", arrayProcessor.getMultiThreadResult());
     }
 }
 
