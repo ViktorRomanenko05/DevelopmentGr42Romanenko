@@ -63,13 +63,15 @@ public class MovieDataService {
     }
 
     //Метод для удаления фильма из списка по id
-    public void removeMovieById(Long id, Set<Movie> moviesSet, File fileMovies) {
+    public boolean removeMovieById(Long id, Set<Movie> moviesSet, File fileMovies) {
         Movie result = findById(id, moviesSet);
         boolean isRemoved = moviesSet.remove(result);
         if (isRemoved) {
             log.info("Movie with id {} was removed", id);
             writeMoviesToFile(fileMovies, moviesSet);
+            return true;
         }
+        else {return false;}
     }
 
     //Метод чтения фильмов из файла

@@ -15,7 +15,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -23,9 +26,6 @@ public class RestApiMovieControllerIT {
 
     @Autowired
     private TestRestTemplate testRestTemplate;
-
-    @Autowired
-    private MovieDataService movieDataService;
 
     private static final String BASE_URL = "/movies";
 
@@ -76,6 +76,8 @@ public class RestApiMovieControllerIT {
     @DisplayName("DeleteMovieById")
     void testDeleteMovie() {
         testRestTemplate.delete(BASE_URL + "/123");
-        assertEquals(10, movieDataService.getMovies().size());
+        ResponseEntity<Movie> response = testRestTemplate.getForEntity(BASE_URL + "/123", Movie.class);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertNull(response.getBody());
     }
 }

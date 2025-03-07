@@ -1,5 +1,4 @@
 6, Amélie, Romantic Comedy, 2001
-123, Avatar, Action, 2009
 10, Cinema Paradiso, Drama/Romance, 1988
 5, Forrest Gump, Drama/Comedy, 1994
 3, Inception, Sci-Fi/Thriller, 2010
