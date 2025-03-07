@@ -1,0 +1,10 @@
+1,The Dark Knight,Action/Crime,2008
+2,Fight Club,Drama,1999
+3,Goodfellas,Crime/Drama,1990
+4,The Silence of the Lambs,Thriller/Crime,1991
+5,Schindler's List,Historical Drama,1993
+6,The Lives of Others,Drama/Thriller,2006
+7,La Dolce Vita,Drama,1960
+8,Amadeus,Historical Drama,1984
+9,Run Lola Run,Thriller/Drama,1998
+10,The Great Beauty,Drama,2013
