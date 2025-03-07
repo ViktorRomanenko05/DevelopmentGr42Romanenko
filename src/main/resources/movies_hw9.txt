@@ -1,0 +1,10 @@
+6, Amélie, Romantic Comedy, 2001
+10, Cinema Paradiso, Drama/Romance, 1988
+5, Forrest Gump, Drama/Comedy, 1994
+3, Inception, Sci-Fi/Thriller, 2010
+8, Life Is Beautiful, Comedy/Drama, 1997
+7, Pan's Labyrinth, Fantasy/Drama, 2006
+2, Pulp Fiction, Crime/Drama, 1994
+1, The Godfather, Crime/Drama, 1972
+9, The Intouchables, Biography/Drama, 2011
+4, Titanic, Romance/Drama, 1997
