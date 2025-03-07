@@ -26,11 +26,6 @@ public class RestApiCarControllerIT {
 
     private static final String BASE_URL = "/cars";
 
-    @BeforeEach
-    void setUp() {
-
-    }
-
     @Test
     @Order(1)
     void testGetCarsReturnDefaultCars() {
