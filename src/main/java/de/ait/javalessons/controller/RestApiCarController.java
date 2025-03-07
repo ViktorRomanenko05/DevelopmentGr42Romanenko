@@ -29,6 +29,7 @@ public class RestApiCarController {
                 ));
     }
 
+
     /**
      * Метод для получения всех автомобилей.
      * GET-запрос на /cars

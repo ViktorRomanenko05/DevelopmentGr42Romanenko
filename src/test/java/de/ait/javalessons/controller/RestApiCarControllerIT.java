@@ -2,7 +2,10 @@ package de.ait.javalessons.controller;
 
 import de.ait.javalessons.model.Car;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -15,6 +18,7 @@ import org.springframework.http.ResponseEntity;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class RestApiCarControllerIT {
 
     @Autowired
@@ -28,6 +32,7 @@ public class RestApiCarControllerIT {
     }
 
     @Test
+    @Order(1)
     void testGetCarsReturnDefaultCars() {
         ResponseEntity<Car[]> response = testRestTemplate.getForEntity(BASE_URL, Car[].class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -37,6 +42,7 @@ public class RestApiCarControllerIT {
     }
 
     @Test
+    @Order(2)
     void testGetCarByIdWasFound() {
         ResponseEntity<Car> response = testRestTemplate.getForEntity(BASE_URL + "/1", Car.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -45,6 +51,7 @@ public class RestApiCarControllerIT {
     }
 
     @Test
+    @Order(3)
     void testGetCarByIdWasNotFound() {
         ResponseEntity<Car> response = testRestTemplate.getForEntity(BASE_URL + "/10", Car.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -52,6 +59,7 @@ public class RestApiCarControllerIT {
     }
 
     @Test
+    @Order(4)
     void testPostCarAddNewCar() {
         Car carToAdd = new Car("5", "Tesla Model S");
         ResponseEntity<Car> response = testRestTemplate.postForEntity(BASE_URL, carToAdd, Car.class);
@@ -61,6 +69,7 @@ public class RestApiCarControllerIT {
     }
 
     @Test
+    @Order(5)
     void testPutCarUpdateCarInfo() {
         Car carToUpdate = new Car("1", "Tesla Model S");
         HttpHeaders headers = new HttpHeaders();
