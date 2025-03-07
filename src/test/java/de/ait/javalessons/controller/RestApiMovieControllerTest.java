@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseEntity;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.Optional;
@@ -107,5 +109,4 @@ public class RestApiMovieControllerTest {
         assertEquals(9, movieDataService.getMovies().size());
         assertFalse(movieDataService.getMovies().stream().anyMatch(m -> m.getId() == 5));
     }
-
 }

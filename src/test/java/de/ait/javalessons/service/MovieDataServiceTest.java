@@ -3,6 +3,7 @@ package de.ait.javalessons.service;
 import de.ait.javalessons.model.Movie;
 import de.ait.javalessons.services.MovieDataService;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -46,6 +48,7 @@ public class MovieDataServiceTest {
         testDataSet.clear();
         testDataSet = movieDataService.readMoviesFromFile(testMovieSetupFile);
         testDataOutputList.clear();
+        clearOutputFile();
     }
 
     @Test
@@ -135,6 +138,14 @@ public class MovieDataServiceTest {
         movieDataService.removeMovieById(5000L, testDataSet, testMovieOutputFile);
         testDataOutputList = readMoviesFromFile(testMovieOutputFile);
         assertEquals(10, testDataSet.size());
+    }
+
+    //Метод для очистки файла с результатами работы теста
+    private void clearOutputFile() {
+        try (FileWriter writer = new FileWriter(testMovieOutputFile, false)) {
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //Метод для чтения из файла
