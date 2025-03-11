@@ -1,9 +1,7 @@
 package de.ait.javalessons.service;
 
 import de.ait.javalessons.model.Movie;
-import de.ait.javalessons.services.MovieDataService;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

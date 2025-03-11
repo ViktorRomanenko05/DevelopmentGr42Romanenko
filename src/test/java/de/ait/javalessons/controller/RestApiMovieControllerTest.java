@@ -1,7 +1,7 @@
 package de.ait.javalessons.controller;
 
 import de.ait.javalessons.model.Movie;
-import de.ait.javalessons.services.MovieDataService;
+import de.ait.javalessons.service.MovieDataService;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,8 +10,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseEntity;
 
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.Optional;

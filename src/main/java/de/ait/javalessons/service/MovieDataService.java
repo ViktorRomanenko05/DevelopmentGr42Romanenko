@@ -1,4 +1,4 @@
-package de.ait.javalessons.services;
+package de.ait.javalessons.service;
 
 import de.ait.javalessons.model.Movie;
 import lombok.Getter;

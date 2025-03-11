@@ -1,7 +1,7 @@
 package de.ait.javalessons.controller;
 
 import de.ait.javalessons.model.Movie;
-import de.ait.javalessons.services.MovieDataService;
+import de.ait.javalessons.service.MovieDataService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
