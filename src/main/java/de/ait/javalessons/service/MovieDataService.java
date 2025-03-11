@@ -21,7 +21,7 @@ import java.util.Set;
 @Service
 public class MovieDataService {
 
-    private final File file = Path.of("src", "main", "resources", "movies_hw9.txt").toFile();
+    private final File file = Path.of("root", "DevelopmentGr42Romanenko", "src", "main", "resources", "movies_hw9.txt").toFile();
 
     private final Set<Movie> movies = readMoviesFromFile(file);
 
