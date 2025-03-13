@@ -21,14 +21,6 @@ public class RestApiCarController {
     // Конструктор класса, инициализирующий список автомобилей
     public RestApiCarController(CarRepository carRepository) {
         this.carRepository = carRepository;
-
-        this.carRepository.saveAll(
-                List.of(
-                        new Car("1", "BMW M1"),
-                        new Car("2", "Audi A8"),
-                        new Car("3", "Kia Spartage"),
-                        new Car("4", "Volvo 960")
-                ));
     }
 
     /**
