@@ -1,7 +1,6 @@
 package de.ait.javalessons.controller;
 
 import de.ait.javalessons.model.Car;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -73,5 +72,4 @@ public class RestApiCarControllerIT {
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals("Tesla Model S", response.getBody().getName());
     }
-
 }
