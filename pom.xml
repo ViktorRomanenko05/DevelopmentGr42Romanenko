@@ -47,6 +47,14 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- Postgre database -->
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.6.0</version>
+        </dependency>
+
         <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
