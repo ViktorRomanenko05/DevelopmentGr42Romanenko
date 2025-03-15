@@ -1,5 +1,6 @@
 package de.ait.javalessons.controller;
 
+import de.ait.javalessons.exceptions.InvalidAmountException;
 import de.ait.javalessons.model.BankAccount;
 import de.ait.javalessons.repositories.BankAccountRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,7 +16,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -105,6 +108,14 @@ public class BankAccountControllerIT {
     }
 
     @Test
+    @DisplayName("Deposit negative test - amount exceeds max limit")
+    void testDepositNegative() {
+        String url = BASE_URL + "/" + accountFour.getId() + "/deposit?amount=5001";
+        ResponseEntity<String> response = testRestTemplate.postForEntity(url, null, String.class);
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
+    }
+
+    @Test
     @DisplayName("Withdraw positive test")
     void testWithdrawPositive () {
         String url = BASE_URL + "/" + accountFive.getId() + "/withdraw?amount=2000";
@@ -113,5 +124,21 @@ public class BankAccountControllerIT {
         assertEquals(5500.00, response.getBody());
         BankAccount accountFiveRenew = testRestTemplate.getForEntity(BASE_URL + "/" + accountFive.getId(), BankAccount.class).getBody();
         assertEquals(5500.00, accountFiveRenew.getBalance());
+    }
+
+    @Test
+    @DisplayName("Withdraw negative test - amount exceeds max limit")
+    void testWithdrawNegative() {
+        String url = BASE_URL + "/" + accountFour.getId() + "/withdraw?amount=2001";
+        ResponseEntity<String> response = testRestTemplate.postForEntity(url, null, String.class);
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
+    }
+
+    @Test
+    @DisplayName("Withdraw negative test - amount on account lower min limit")
+    void testWithdrawNegativeLowAmount() {
+        String url = BASE_URL + "/" + accountTwo.getId() + "/withdraw?amount=990";
+        ResponseEntity<String> response = testRestTemplate.postForEntity(url, null, String.class);
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
     }
 }
