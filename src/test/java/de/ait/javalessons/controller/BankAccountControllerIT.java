@@ -1,6 +1,5 @@
 package de.ait.javalessons.controller;
 
-import de.ait.javalessons.exceptions.InvalidAmountException;
 import de.ait.javalessons.model.BankAccount;
 import de.ait.javalessons.repositories.BankAccountRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,9 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -76,12 +73,18 @@ public class BankAccountControllerIT {
     }
 
     @Test
-    @DisplayName("Get bank account by id negative")
+    @DisplayName("Get bank account by id negative - account does not exist")
     void testGetAccountByIdNegative() {
-        String url = BASE_URL + "/" + 888;
-        ResponseEntity<BankAccount> response = testRestTemplate.getForEntity(url, BankAccount.class);
-        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
-        assertNull(response.getBody());
+        ResponseEntity<BankAccount[]> response = testRestTemplate.getForEntity(BASE_URL, BankAccount[].class);
+        Long maxId = Arrays.stream(response.getBody())
+                .mapToLong(BankAccount::getId)
+                .max()
+                .orElse(0L);
+        Long testId = maxId + 1;
+        String url = BASE_URL + "/" + testId;
+        ResponseEntity<BankAccount> response_2 = testRestTemplate.getForEntity(url, BankAccount.class);
+        assertEquals(HttpStatus.NOT_FOUND, response_2.getStatusCode());
+        assertNull(response_2.getBody());
     }
 
     @Test
@@ -135,7 +138,7 @@ public class BankAccountControllerIT {
     }
 
     @Test
-    @DisplayName("Withdraw negative test - amount on account lower min limit")
+    @DisplayName("Withdraw negative test - amount on account less than min limit")
     void testWithdrawNegativeLowAmount() {
         String url = BASE_URL + "/" + accountTwo.getId() + "/withdraw?amount=990";
         ResponseEntity<String> response = testRestTemplate.postForEntity(url, null, String.class);
