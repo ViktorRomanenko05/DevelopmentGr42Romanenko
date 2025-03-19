@@ -22,8 +22,8 @@ import java.util.Set;
 @Service
 public class MovieDataService {
 
-    //private final File file = new File("/root/DevelopmentGr42Romanenko/data/movies_hw9.txt");
-    private final File file = Paths.get("src", "main", "resources", "movies_hw9.txt").toFile();
+    private final File file = new File("/root/DevelopmentGr42Romanenko/data/movies_hw9.txt");
+    //private final File file = Paths.get("src", "main", "resources", "movies_hw9.txt").toFile();
     private final Set<Movie> movies = readMoviesFromFile(file);
 
     //Метод для добавления фильма
@@ -118,5 +118,4 @@ public class MovieDataService {
             log.error("Error of writing movies to file: {}", exception.getMessage());
         }
     }
-
 }
