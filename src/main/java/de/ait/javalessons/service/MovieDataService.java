@@ -12,6 +12,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -21,7 +22,8 @@ import java.util.Set;
 @Service
 public class MovieDataService {
 
-    private final File file = new File("/root/DevelopmentGr42Romanenko/data/movies_hw9.txt");
+    //private final File file = new File("/root/DevelopmentGr42Romanenko/data/movies_hw9.txt");
+    private final File file = Paths.get("src", "main", "resources", "movies_hw9.txt").toFile();
     private final Set<Movie> movies = readMoviesFromFile(file);
 
     //Метод для добавления фильма
