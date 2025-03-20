@@ -41,6 +41,18 @@ public class ShopService {
             log.error("Name is null");
             throw new IllegalArgumentException("Name is null");
         }
+        if (description == null){
+            log.error("Description is null");
+            throw new IllegalArgumentException("Description is null");
+        }
+        if (price < 0){
+            log.error("Price is less then 0");
+            throw new IllegalArgumentException("Price is less then 0");
+        }
+        if(quantity < 0){
+            log.error("Quantity is less then 0");
+            throw new IllegalArgumentException("Quantity is less then 0");
+        }
         boolean existName = articleRepository.findAll().stream().map(Article::getName).anyMatch(articleName -> articleName.equals(name));
         if (existName) {
             log.info("Article with name {} is already exist", name);
