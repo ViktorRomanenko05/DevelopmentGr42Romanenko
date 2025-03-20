@@ -32,7 +32,17 @@ public class SecurityConfig {
                 .roles("ADMIN")
                 .build();
 
-        return new InMemoryUserDetailsManager (user, admin);
+        UserDetails customer = User.withUsername("customer")
+                .password(passwordEncoder.encode("customerpass"))
+                .roles("CUSTOMER")
+                .build();
+
+        UserDetails manager = User.withUsername("manager")
+                .password(passwordEncoder.encode("managerpass"))
+                .roles("MANAGER")
+                .build();
+
+        return new InMemoryUserDetailsManager (user, admin, customer, manager);
     }
 
     @Bean
@@ -40,9 +50,12 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                         .authorizeHttpRequests(authorize -> authorize
-                                .requestMatchers(("employees/public/**")).permitAll()
-                                .requestMatchers(("employees/user/**")).hasRole("USER")
-                                .requestMatchers(("employees/admin/**")).hasRole("ADMIN")
+                                .requestMatchers(("/employees/public/**")).permitAll()
+                                .requestMatchers(("/employees/user/**")).hasRole("USER")
+                                .requestMatchers(("/employees/admin/**")).hasRole("ADMIN")
+                                .requestMatchers("/products/public/**").permitAll()
+                                .requestMatchers("/products/customer/**").hasRole("CUSTOMER")
+                                .requestMatchers("/products/manager/**").hasRole("MANAGER")
                                 .anyRequest().authenticated()
                         )
                         .formLogin(withDefaults());
