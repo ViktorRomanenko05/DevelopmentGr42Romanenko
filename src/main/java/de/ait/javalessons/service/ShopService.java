@@ -93,7 +93,7 @@ public class ShopService {
                 shopCartRepository.save(new ShopCart(articleToAdd, quantity));
             }
         }
-        Optional<ShopCart> renewedItem = shopCartRepository.findAll().stream().filter(cart -> cart.getArticle().getId() == articleId).findFirst();
+        Optional<ShopCart> renewedItem = shopCartRepository.findAll().stream().filter(cart -> cart.getArticle().getId().equals(articleId)).findFirst();
         return renewedItem.get();
     }
 }

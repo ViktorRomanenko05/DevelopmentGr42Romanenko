@@ -25,13 +25,6 @@ public class Article {
     @Setter
     private int quantity;
 
-    public Article(String name, String description, double price) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.quantity = 0;
-    }
-
     public Article(String name, String description, double price, int quantity) {
         this.name = name;
         this.description = description;
