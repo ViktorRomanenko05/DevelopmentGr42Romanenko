@@ -11,16 +11,16 @@ public class EmployeeController {
 
     @GetMapping("/public/info")
     public ResponseEntity<String> getPublicInfo() {
-        return ResponseEntity.ok("User info, public information");
+        return ResponseEntity.ok("User Info, public information");
     }
 
     @GetMapping("/user/info")
     public ResponseEntity<String>getUserInfo(){
-        return ResponseEntity.ok("User info, secured user information");
+        return ResponseEntity.ok("User Info, secured user information");
     }
 
     @GetMapping("/admin/info")
     public ResponseEntity<String>getAdminInfo(){
-        return ResponseEntity.ok("User info, secured admin information");
+        return ResponseEntity.ok("Admin Info, secured admin information");
     }
 }
