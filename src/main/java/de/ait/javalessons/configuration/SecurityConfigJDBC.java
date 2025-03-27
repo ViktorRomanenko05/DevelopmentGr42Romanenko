@@ -23,40 +23,40 @@ import javax.sql.DataSource;
 //@Configuration
 //@EnableWebSecurity
 public class SecurityConfigJDBC {
-/**
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    public JdbcUserDetailsManager jdbcUserDetailsManager(DataSource dataSource) {
-        return new JdbcUserDetailsManager(dataSource);
-    }
-
-    @Bean
-    public DaoAuthenticationProvider daoAuthenticationProvider(JdbcUserDetailsManager jdbcUserDetailsManager, PasswordEncoder passwordEncoder) {
-        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
-        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder);
-        daoAuthenticationProvider.setUserDetailsService(jdbcUserDetailsManager);
-        return daoAuthenticationProvider;
-    }
-
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http, DaoAuthenticationProvider daoAuthenticationProvider) throws Exception {
-        http
-                .authenticationProvider(daoAuthenticationProvider)
-                .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/user/**").hasRole("USER")
-                        .requestMatchers("/", "/login/**", "/public/**", "/h2-console/**", "/swagger-ui/**").permitAll()
-                        .anyRequest().authenticated()
-                )
-                .headers(headers -> headers.frameOptions().sameOrigin())
-                .formLogin(Customizer.withDefaults())
-                .logout(logout -> logout.permitAll());
-
-        return http.build();
-    }*/
+//
+// @Bean
+// public PasswordEncoder passwordEncoder() {
+// return new BCryptPasswordEncoder();
+// }
+//
+// @Bean
+// public JdbcUserDetailsManager jdbcUserDetailsManager(DataSource dataSource) {
+// return new JdbcUserDetailsManager(dataSource);
+// }
+//
+// @Bean
+// public DaoAuthenticationProvider daoAuthenticationProvider(JdbcUserDetailsManager jdbcUserDetailsManager, PasswordEncoder passwordEncoder) {
+// DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
+// daoAuthenticationProvider.setPasswordEncoder(passwordEncoder);
+// daoAuthenticationProvider.setUserDetailsService(jdbcUserDetailsManager);
+// return daoAuthenticationProvider;
+// }
+//
+// @Bean
+// public SecurityFilterChain filterChain(HttpSecurity http, DaoAuthenticationProvider daoAuthenticationProvider) throws Exception {
+// http
+// .authenticationProvider(daoAuthenticationProvider)
+// .csrf(AbstractHttpConfigurer::disable)
+// .authorizeHttpRequests(auth -> auth
+// .requestMatchers("/admin/**").hasRole("ADMIN")
+// .requestMatchers("/user/**").hasRole("USER")
+// .requestMatchers("/", "/login/**", "/public/**", "/h2-console/**", "/swagger-ui/**").permitAll()
+// .anyRequest().authenticated()
+// )
+// .headers(headers -> headers.frameOptions().sameOrigin())
+// .formLogin(Customizer.withDefaults())
+// .logout(logout -> logout.permitAll());
+//
+// return http.build();
+// }
 }

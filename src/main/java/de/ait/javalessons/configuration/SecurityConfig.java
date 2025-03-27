@@ -28,7 +28,7 @@ public class SecurityConfig {
                         .anyRequest().authenticated())
                 .logout(logout -> logout
                         .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET")).permitAll());
-        http.headers(headers -> headers.frameOptions().disable());
+        http.headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable()));
 
         return http.build();
     }

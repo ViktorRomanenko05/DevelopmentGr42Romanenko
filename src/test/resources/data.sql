@@ -1,4 +1,3 @@
-/*
 DROP TABLE IF EXISTS authorities;
 DROP TABLE IF EXISTS users;
 
@@ -23,4 +22,4 @@ VALUES ('user', '$2a$10$XTYrfRQzPUDsJ.smAKwRougTNtZ80Ak267mGWnaYYQMZG9KaZD2jy', 
 INSERT INTO authorities (username, authority)
 VALUES ('user', 'ROLE_USER');
 INSERT INTO authorities (username, authority)
-VALUES ('admin', 'ROLE_ADMIN'); */
+VALUES ('admin', 'ROLE_ADMIN');
